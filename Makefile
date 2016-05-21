@@ -1,5 +1,5 @@
-.PHONY: csv
+.PHONY: extractor
 
-all:
+extractor:
 	lua MMExtractor.lua
 

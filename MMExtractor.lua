@@ -1,4 +1,11 @@
-OUT_FILE_PATH = "./MMExtractor.csv"
+-- MMExtractor.lua
+--
+-- Export the entire Master Merchant database as a single tab-delimited-text file.
+-- Runs in ~5 seconds, produces a 30+MB tab-delimited-text file.
+--
+-- Intentially stupid: no thinking. Just convert to a more public format.
+
+OUT_FILE_PATH = "./MMExtractor.txt"
 OUT_FILE = assert(io.open(OUT_FILE_PATH, "w"))
 TAB = "\t"
 
@@ -7,6 +14,7 @@ function d(s)
 end
 
 function loop_over_input_files()
+    write_header()
     for i = 0,20 do
         local in_file_path = "../../SavedVariables/MM"
                              .. string.format("%02d",i)
@@ -57,11 +65,30 @@ function extract(sales_data)
     end
 end
 
+HEADER = { "itemDesc", "seller", "buyer", "price", "quant", "timestamp", "guild", "itemLink" }
+function write_header()
+    l = "# "
+    for i,key in ipairs(HEADER) do
+        if 1 < i then
+            l = l .. TAB
+        end
+        l = l .. key
+    end
+    OUT_FILE:write(l .. "\n")
+end
+
 -- Write one sale record
-function extract_sale(item_desc, sale)
+function extract_sale(itemDesc, sale)
     l = item_desc .. TAB
-    for _,key in ipairs({ "seller", "buyer", "price", "quant", "timestamp", "guild", "itemLink" }) do
-        l = l .. TAB .. b(sale, key)
+    for i,key in ipairs(HEADER) do
+        if 1 < i then
+            l = l .. TAB
+        end
+        if key == "item_desc" then
+            l = l .. item_desc
+        else
+            l = l .. b(sale, key)
+        end
     end
     OUT_FILE:write(l .. "\n")
 end
@@ -71,7 +98,5 @@ function b(table,key)
     if table[key] == nil then return "" end
     return tostring(table[key])
 end
-
-
 
 loop_over_input_files()
