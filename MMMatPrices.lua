@@ -8,9 +8,10 @@ TAB = "\t"
 
 -- Cutoffs -------------------------------------------------------------------
 -- Want to output 10-day and 30-day averages? Here is where those numbers 10 and 30 appear, and get translated to seconds-since-the-epoch timestamp numbers.
-DAYS_AGO = { 10, 30 }
-CUTOFFS = {}    -- integer days_ago ==> cutoff timestamp
-MOST_RECENT_TS = 0
+DAYS_AGO    = { 10, 30 }
+CUTOFFS     = {}    -- integer days_ago ==> cutoff timestamp
+NOW         = os.time()
+SEC_PER_DAY = 24*60*60
 
 -- "name" here is what Zig uses in spreadsheets, NOT the official display name
 -- from ESO data with it's goofy ^ns suffix.
@@ -121,7 +122,6 @@ MATS = {
 , { "citrine"             , "|H0:item:16291:30:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
 , { "potent nirncrux"     , "|H0:item:56863:30:46:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
 , {                                                                                       }
-, {                                                                                       }
 , { "Jora"                , "|H0:item:45855:20:13:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
 , { "Porade"              , "|H0:item:45856:20:13:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
 , { "Jera"                , "|H0:item:45857:20:13:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
@@ -210,7 +210,6 @@ MATS = {
 , { "Star Dew"            , "|H0:item:64500:134:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
 , { "Lorkhan's Tears"     , "|H0:item:64501:308:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
 
-
 }
 
 
@@ -222,11 +221,13 @@ HISTORY = {}    -- "link" ==> History table, initialized in init_history()
 Sale = {
   gold = 0
 , ct   = 0
+, ts   = 0
 }
 
-function Sale:New(gold, ct)
+function Sale:New(gold, ct, ts)
     local o = { gold = gold
               , ct   = ct
+              , ts   = ts
               }
     setmetatable(o, self)
     self.__index = self
@@ -238,11 +239,27 @@ function Sale:Add(b)
     self.ct   = self.ct   + b.ct
 end
 
-function Sale:Average()
+function Sale:AddWeighted(b, weight)
+    self.gold = self.gold + b.gold * weight
+    self.ct   = self.ct   + b.ct   * weight
+end
+
+-- Return a simple mean price of this single sales record.
+function Sale:Mean()
     if self.ct == 0 then return 0 end
     local avg_f = self.gold / self.ct
     local avg_i = math.floor(avg_f + 0.5)
     return avg_i
+end
+
+-- How many days ago was this sale?
+-- Today = 0
+function Sale:DaysAgo()
+    local secs_ago = NOW - self.ts
+    local days_ago = math.floor(secs_ago / SEC_PER_DAY)
+    -- d("NOW:" .. tostring(NOW).. " self.ts:" .. tostring(self.ts)
+    --   .. " secs_ago:" .. tostring(secs_ago) .. " days_ago:"..tostring(days_ago))
+    return days_ago
 end
 
 -- History -------------------------------------------------------------------
@@ -271,22 +288,86 @@ function History:Append(mm_sale)
     local ts = mm_sale.timestamp
     for days_ago, cutoff in pairs(CUTOFFS) do
         if cutoff <= ts then
-            sale = Sale:New(mm_sale.price, mm_sale.quant)
+            sale = Sale:New(mm_sale.price, mm_sale.quant, mm_sale.timestamp)
             table.insert(self[days_ago], sale)
         end
     end
 end
 
+-- Outlier -------------------------------------------------------------------
+-- Looking at the full span of data, is any individual data point so far out
+-- of the usual that it's not worth counting?
+-- Master Merchant uses "more than 3 standard deviations from the mean" and
+-- so shall we.
+Outlier = {
+  mean   = 0
+, stddev = 0
+}
+function Outlier:New(l)
+    local o = { mean   = 0
+              , stddev = 0
+              }
+    setmetatable(o, self)
+    self.__index = self
+    o.mean   = Mean(l)
+    o.stddev = StandardDeviation(l)
+    return o
+end
+
+function Outlier:IsOutlier(sale)
+    return 3 * self.stddev < math.abs(self.mean - sale:Mean())
+end
+
 -- Average one list of Sale records
 --
--- Does NOT know how to ignore outliers. Could add that if I cared that much.
+-- 1. Ignore outliers.
+--    "outlier" is controlled by Outlier:IsOutlier()
+--    and currently "more than 3 standard deviations out"
+--
+-- 2. Weight more recent days higher than older days.
+--
+-- This outlier control and weighting still does not match Master Merchant.
+-- Not sure why not. Grr.
+--
 function History:Average(days_ago)
-    local l   = self[days_ago]
+    local l         = self[days_ago]
+    local acc       = Sale:New(0, 0)
+    local outlier   = Outlier:New(l)
+    for _, sale in ipairs(l) do
+        local sale_mean = sale:Mean()
+        if outlier:IsOutlier(sale) then
+            -- ignore outlier
+            -- d("Ignoring outlier: "..self.name.." "..tostring(sale_mean)
+            --         .. "  mean="..tostring(outlier.mean)
+            --         .. "  stddev="..tostring(outlier.stddev)
+            --         )
+        else
+            weight = days_ago - sale:DaysAgo()
+            acc:AddWeighted(sale, weight)
+        end
+    end
+    return acc:Mean()
+end
+
+-- Return a simple mean average of all values in history.
+function Mean(l)
     local acc = Sale:New(0, 0)
     for _, sale in ipairs(l) do
         acc:Add(sale)
     end
-    return acc:Average()
+    return acc:Mean()
+end
+
+function StandardDeviation(l)
+    local std       = 0
+    local sample_ct = 0
+    local mean      = Mean(l)
+    for _, sale in ipairs(l) do
+        local offset = (sale:Mean() - mean)^2
+        std       = std       + offset * sale.ct
+        sample_ct = sample_ct +          sale.ct
+    end
+    return math.sqrt(std / sample_ct)
 end
 
 -- Create and return a table of "link" ==> History, one element for each MATS line.
@@ -305,8 +386,7 @@ end
 
 -- Return earliest timestamp for N days ago. Any timestamp smaller than this is unworthy.
 function Cutoff(days_ago)
-    local now = os.time()
-    return now - 24*60*60*days_ago
+    return NOW - SEC_PER_DAY*days_ago
 end
 
 function init_cutoffs()
@@ -366,9 +446,6 @@ function record_mm_sales_data(mm_sales_data)
             if vv["sales"] then
                 for i, mm_sale in ipairs(vv["sales"]) do
                     record_mm_sale(mm_sale)
-                    if MOST_RECENT_TS < mm_sale.timestamp then
-                        MOST_RECENT_TS = mm_sale.timestamp
-                    end
                 end
             end
         end
@@ -425,7 +502,7 @@ function write_header()
     for _, days_ago in ipairs(DAYS_AGO) do
         table.insert(l, tostring(days_ago) .. " day average")
     end
-    table.insert(l, "# as of " .. iso_date(os.time()))
+    table.insert(l, "# as of " .. iso_date(NOW))
     write_list(l)
 end
 
