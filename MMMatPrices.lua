@@ -15,6 +15,13 @@ SEC_PER_DAY = 24*60*60
 
 -- "name" here is what Zig uses in spreadsheets, NOT the official display name
 -- from ESO data with it's goofy ^ns suffix.
+--
+-- "link" is significant only up to the second number: "the "308"
+-- in "|H0:item:64509:308:39:0:0:..."  Stuff after that doesn't matter.
+
+MATSx = {
+  { "Rejera"              , "|H0:item:64509:308:39:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+}
 MATS = {
   { "jute"                , "|H0:item:811:30:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h"   }
 , { "flax"                , "|H0:item:4463:30:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h"  }
@@ -102,6 +109,9 @@ MATS = {
 , { "lion fang"           , "|H0:item:71742:30:0:0:0:0:0:0:0:0:0:0:0:0:0:23:0:0:0:0:0|h|h" }
 , { "dragon scute"        , "|H0:item:71740:30:0:0:0:0:0:0:0:0:0:0:0:0:0:24:0:0:0:0:0|h|h" }
 , { "azure plasm"         , "|H0:item:71766:30:50:0:0:0:0:0:0:0:0:0:0:0:0:30:0:0:0:0:0|h|h" }
+, { "fine chalk"          , "|H0:item:75370:30:0:0:0:0:0:0:0:0:0:0:0:0:0:11:0:0:0:0:0|h|h" }
+, { "polished shilling"   , "|H0:item:76914:30:0:0:0:0:0:0:0:0:0:0:0:0:0:41:0:0:0:0:0|h|h" }
+, { "tainted blood"       , "|H0:item:76910:30:0:0:0:0:0:0:0:0:0:0:0:0:0:46:0:0:0:0:0|h|h" }
 , {                                                                                       }
 , { "quartz"              , "|H0:item:4456:30:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
 , { "diamond"             , "|H0:item:23219:30:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
@@ -378,7 +388,7 @@ function init_history()
         local link = name_link[2]
         if link  and link ~= "" then
             -- d("name: " .. tostring(name) .. "  link: " .. tostring(link))
-            r[link] = History:New(name, link)
+            r[link_strip(link)] = History:New(name, link)
         end
     end
     return r
@@ -397,6 +407,23 @@ function init_cutoffs()
     return r
 end
 
+-- Item links are significant only to the second number. After that is noise
+-- that can sometimes vary (Rejera did) and cause us to miss sale records.
+function link_strip(link)
+    -- Find the 4th colon
+
+    delim = ':'
+    local delim_index = 0
+    local end_index   = 0
+    for i = 1,4 do
+        end_index = string.find(link, delim, delim_index + 1)
+        if end_index == nil then
+            break
+        end
+        delim_index = end_index
+    end
+    return string.sub(link, 0, end_index)
+end
 
 -- ===========================================================================
 -- Reading MM data
@@ -454,7 +481,7 @@ end
 
 function record_mm_sale(mm_sale)
     --d(mm_sale.itemLink)
-    local h = HISTORY[mm_sale.itemLink]
+    local h = HISTORY[link_strip(mm_sale.itemLink)]
     if h then
         --d("found    : " .. mm_sale.itemLink)
         h:Append(mm_sale)
@@ -485,7 +512,7 @@ function write_averages()
         local link    = name_link[2]
         local l       = { name, link }
         if link and link ~= "" then
-            local history = HISTORY[link]
+            local history = HISTORY[link_strip(link)]
             for _, days_ago in ipairs(DAYS_AGO) do
                 local avg = history:Average(days_ago)
                 table.insert(l, string.format("%d", avg))
