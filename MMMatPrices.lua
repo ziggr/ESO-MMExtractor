@@ -293,6 +293,311 @@ MATS = {
 , { "Worms"               , "|H0:item:42869:30:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
 , { "Insect Parts"        , "|H0:item:42872:30:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
 , { "Crawlers"            , "|H0:item:42871:30:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, {                                                                                       }
+, { "Crafting Motifs 1: Altmer"                               , "|H0:item:16424:4:12:0:0:0:0:0:0:0:0:0:0:0:0:7:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 2: Dunmer"                               , "|H0:item:27245:4:10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 3: Wood Elf"                             , "|H0:item:16428:4:14:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 4: Nord"                                 , "|H0:item:27244:4:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 5: Breton"                               , "|H0:item:16425:4:9:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 6: Redguard"                             , "|H0:item:16427:4:14:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 7: Khajiit"                              , "|H0:item:44698:4:22:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 8: Orc"                                  , "|H0:item:16426:4:32:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 9: Argonian"                             , "|H0:item:27246:4:35:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 10: Imperial"                            , "|H0:item:54868:6:50:0:0:0:0:0:0:0:0:0:0:0:0:34:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 11: Ancient Elf"                         , "|H0:item:51638:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 12: Barbaric"                            , "|H0:item:51565:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 13: Primal"                              , "|H0:item:51345:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 14: Daedric"                             , "|H0:item:51688:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, {                                                                                                                           }
+, { "Crafting Motifs 15, Chapter 1: Dwemer Axes"              , "|H0:item:57573:5:23:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 15, Chapter 2: Dwemer Belts"             , "|H0:item:57574:5:20:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 15, Chapter 3: Dwemer Boots"             , "|H0:item:57575:5:19:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 15, Chapter 4: Dwemer Bows"              , "|H0:item:57576:5:26:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 15, Chapter 5: Dwemer Chests"            , "|H0:item:57577:5:25:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 15, Chapter 6: Dwemer Daggers"           , "|H0:item:57578:5:10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 15, Chapter 7: Dwemer Gloves"            , "|H0:item:57579:5:16:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 15, Chapter 8: Dwemer Helmets"           , "|H0:item:57580:5:11:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 15, Chapter 9: Dwemer Legs"              , "|H0:item:57581:5:26:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 15, Chapter 10: Dwemer Maces"            , "|H0:item:57582:5:10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 15, Chapter 11: Dwemer Shields"          , "|H0:item:57583:5:10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 15, Chapter 12: Dwemer Shoulders"        , "|H0:item:57584:5:14:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 15, Chapter 13: Dwemer Staves"           , "|H0:item:57585:5:15:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 15, Chapter 14: Dwemer Swords"           , "|H0:item:57586:5:39:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, {                                                                                                                           }
+, { "Crafting Motifs 16, Chapter 1: Glass Axes"               , "|H0:item:64670:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 16, Chapter 2: Glass Belts"              , "|H0:item:64671:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 16, Chapter 3: Glass Boots"              , "|H0:item:64672:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 16, Chapter 4: Glass Bows"               , "|H0:item:64673:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 16, Chapter 5: Glass Chests"             , "|H0:item:64674:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 16, Chapter 6: Glass Daggers"            , "|H0:item:64675:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 16, Chapter 7: Glass Gloves"             , "|H0:item:64676:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 16, Chapter 8: Glass Helmets"            , "|H0:item:64677:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 16, Chapter 9: Glass Legs"               , "|H0:item:64678:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 16, Chapter 10: Glass Maces"             , "|H0:item:64679:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 16, Chapter 11: Glass Shields"           , "|H0:item:64680:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 16, Chapter 12: Glass Shoulders"         , "|H0:item:64681:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 16, Chapter 13: Glass Staves"            , "|H0:item:64682:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 16, Chapter 14: Glass Swords"            , "|H0:item:64683:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, {                                                                                                                           }
+, { "Crafting Motifs 17, Chapter 1: Xivkyn Axes"              , "|H0:item:57835:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 17, Chapter 2: Xivkyn Belts"             , "|H0:item:57836:5:10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 17, Chapter 2: Xivkyn Belts"             , "|H0:item:57836:5:27:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 17, Chapter 2: Xivkyn Belts"             , "|H0:item:57836:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 17, Chapter 3: Xivkyn Boots"             , "|H0:item:57837:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 17, Chapter 4: Xivkyn Bows"              , "|H0:item:57838:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 17, Chapter 5: Xivkyn Chests"            , "|H0:item:57839:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 17, Chapter 6: Xivkyn Daggers"           , "|H0:item:57840:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 17, Chapter 7: Xivkyn Gloves"            , "|H0:item:57841:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 17, Chapter 8: Xivkyn Helmets"           , "|H0:item:57842:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 17, Chapter 9: Xivkyn Legs"              , "|H0:item:57843:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 17, Chapter 10: Xivkyn Maces"            , "|H0:item:57844:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 17, Chapter 11: Xivkyn Shields"          , "|H0:item:57845:5:15:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 17, Chapter 12: Xivkyn Shoulders"        , "|H0:item:57846:5:22:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 17, Chapter 13: Xivkyn Staves"           , "|H0:item:57847:5:13:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 17, Chapter 14: Xivkyn Swords"           , "|H0:item:57848:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, {                                                                                                                           }
+, { "Crafting Motifs 18, Chapter 1: Akaviri Axes"             , "|H0:item:57591:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 18, Chapter 2: Akaviri Belts"            , "|H0:item:57592:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 18, Chapter 3: Akaviri Boots"            , "|H0:item:57593:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 18, Chapter 4: Akaviri Bows"             , "|H0:item:57594:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 18, Chapter 5: Akaviri Chests"           , "|H0:item:57595:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 18, Chapter 6: Akaviri Daggers"          , "|H0:item:57596:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 18, Chapter 7: Akaviri Gloves"           , "|H0:item:57597:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 18, Chapter 8: Akaviri Helmets"          , "|H0:item:57598:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 18, Chapter 9: Akaviri Legs"             , "|H0:item:57599:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 18, Chapter 10: Akaviri Maces"           , "|H0:item:57600:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 18, Chapter 11: Akaviri Shields"         , "|H0:item:57601:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 18, Chapter 12: Akaviri Shoulders"       , "|H0:item:57602:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 18, Chapter 13: Akaviri Staves"          , "|H0:item:57603:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 18, Chapter 14: Akaviri Swords"          , "|H0:item:57604:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, {                                                                                                                           }
+, { "Crafting Motifs 19, Chapter 1: Mercenary Axes"           , "|H0:item:64716:5:46:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 19, Chapter 2: Mercenary Belts"          , "|H0:item:64717:5:46:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 19, Chapter 3: Mercenary Boots"          , "|H0:item:64718:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 19, Chapter 4: Mercenary Bows"           , "|H0:item:64719:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 19, Chapter 5: Mercenary Chests"         , "|H0:item:64720:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 19, Chapter 6: Mercenary Daggers"        , "|H0:item:64721:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 19, Chapter 7: Mercenary Gloves"         , "|H0:item:64722:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 19, Chapter 8: Mercenary Helmets"        , "|H0:item:64723:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 19, Chapter 9: Mercenary Legs"           , "|H0:item:64724:5:45:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 19, Chapter 10: Mercenary Maces"         , "|H0:item:64725:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 19, Chapter 11: Mercenary Shields"       , "|H0:item:64726:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 19, Ch. 12: Mercenary Shoulders"         , "|H0:item:64727:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 19, Chapter 13: Mercenary Staves"        , "|H0:item:64728:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 19, Chapter 14: Mercenary Swords"        , "|H0:item:64729:5:46:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, {                                                                                                                           }
+, { "Crafting Motifs 21, Chapter 1: Ancient Orc Axes"         , "|H0:item:69528:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 21, Chapter 2: Ancient Orc Belts"        , "|H0:item:69529:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 21, Chapter 3: Ancient Orc Boots"        , "|H0:item:69530:5:17:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 21, Chapter 4: Ancient Orc Bows"         , "|H0:item:69531:5:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 21, Chapter 5: Ancient Orc Chests"       , "|H0:item:69532:5:14:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 21, Chapter 6: Ancient Orc Daggers"      , "|H0:item:69533:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 21, Chapter 7: Ancient Orc Gloves"       , "|H0:item:69534:5:12:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 21, Chapter 8: Ancient Orc Helmets"      , "|H0:item:69535:5:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 21, Chapter 9: Ancient Orc Legs"         , "|H0:item:69536:5:11:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 21, Chapter 10: Ancient Orc Maces"       , "|H0:item:69537:5:8:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 21, Chapter 11: Ancient Orc Shield"      , "|H0:item:69538:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 21, Ch. 12: Ancient Orc Shoulders"       , "|H0:item:69539:5:10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 21, Chapter 13: Ancient Orc Staves"      , "|H0:item:69540:5:18:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 21, Chapter 14: Ancient Orc Swords"      , "|H0:item:69541:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, {                                                                                                                           }
+, { "Crafting Motifs 22, Chapter 1: Trinimac Axes"            , "|H0:item:71551:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 22, Chapter 2: Trinimac Belts"           , "|H0:item:71552:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 22, Chapter 3: Trinimac Boots"           , "|H0:item:71553:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 22, Chapter 4: Trinimac Bows"            , "|H0:item:71554:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 22, Chapter 5: Trinimac Chests"          , "|H0:item:71555:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 22, Chapter 6: Trinimac Daggers"         , "|H0:item:71556:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 22, Chapter 7: Trinimac Gloves"          , "|H0:item:71557:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 22, Chapter 8: Trinimac Helmets"         , "|H0:item:71558:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 22, Chapter 9: Trinimac Legs"            , "|H0:item:71559:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 22, Chapter 10: Trinimac Maces"          , "|H0:item:71560:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 22, Chapter 11: Trinimac Shields"        , "|H0:item:71561:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 22, Chapter 12: Trinimac Shoulders"      , "|H0:item:71562:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 22, Chapter 13: Trinimac Staves"         , "|H0:item:71563:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 22, Chapter 14: Trinimac Swords"         , "|H0:item:71564:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, {                                                                                                                           }
+, { "Crafting Motifs 23, Chapter 1: Malacath Axes"            , "|H0:item:71567:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 23, Chapter 2: Malacath Belts"           , "|H0:item:71568:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 23, Chapter 3: Malacath Boots"           , "|H0:item:71569:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 23, Chapter 4: Malacath Bows"            , "|H0:item:71570:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 23, Chapter 5: Malacath Chests"          , "|H0:item:71571:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 23, Chapter 6: Malacath Daggers"         , "|H0:item:71572:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 23, Chapter 7: Malacath Gloves"          , "|H0:item:71573:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 23, Chapter 8: Malacath Helmets"         , "|H0:item:71574:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 23, Chapter 9: Malacath Legs"            , "|H0:item:71575:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 23, Chapter 10: Malacath Maces"          , "|H0:item:71576:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 23, Chapter 11: Malacath Shields"        , "|H0:item:71577:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 23, Chapter 12: Malacath Shoulders"      , "|H0:item:71578:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 23, Chapter 13: Malacath Staves"         , "|H0:item:71579:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 23, Chapter 14: Malacath Swords"         , "|H0:item:71580:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, {                                                                                                                           }
+, { "Crafting Motifs 24, Chapter 1: Outlaw Axes"              , "|H0:item:71523:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 24, Chapter 2: Outlaw Belts"             , "|H0:item:71524:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 24, Chapter 3: Outlaw Boots"             , "|H0:item:71525:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 24, Chapter 4: Outlaw Bows"              , "|H0:item:71526:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 24, Chapter 5: Outlaw Chests"            , "|H0:item:71527:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 24, Chapter 6: Outlaw Daggers"           , "|H0:item:71528:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 24, Chapter 7: Outlaw Gloves"            , "|H0:item:71529:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 24, Chapter 8: Outlaw Helmets"           , "|H0:item:71530:5:27:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 24, Chapter 9: Outlaw Legs"              , "|H0:item:71531:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 24, Chapter 10: Outlaw Maces"            , "|H0:item:71532:5:6:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 24, Chapter 11: Outlaw Shields"          , "|H0:item:71533:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 24, Chapter 12: Outlaw Shoulders"        , "|H0:item:71534:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 24, Chapter 13: Outlaw Staves"           , "|H0:item:71535:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 24, Chapter 14: Outlaw Swords"           , "|H0:item:71536:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, {                                                                                                                           }
+, { "Crafting Motifs 25, Chapter 1: Dominion Axes"            , "|H0:item:71689:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 25, Chapter 2: Dominion Belts"           , "|H0:item:71690:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 25, Chapter 3: Dominion Boots"           , "|H0:item:71691:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 25, Chapter 4: Dominion Bows"            , "|H0:item:71692:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 25, Chapter 5: Dominion Chests"          , "|H0:item:71693:5:26:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 25, Chapter 6: Dominion Daggers"         , "|H0:item:71694:5:37:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 25, Chapter 7: Dominion Gloves"          , "|H0:item:71695:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 25, Chapter 8: Dominion Helmets"         , "|H0:item:71696:5:20:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 25, Chapter 9: Dominion Legs"            , "|H0:item:71697:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 25, Chapter 10: Dominion Maces"          , "|H0:item:71698:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 25, Chapter 11: Dominion Shields"        , "|H0:item:71699:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 25, Chapter 12: Dominion Shoulders"      , "|H0:item:71700:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 25, Chapter 13: Dominion Staves"         , "|H0:item:71701:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 25, Chapter 14: Dominion Swords"         , "|H0:item:71702:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, {                                                                                                                           }
+, { "Crafting Motifs 26, Chapter 1: Covenant Axes"            , "|H0:item:71705:5:10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 26, Chapter 2: Covenant Belts"           , "|H0:item:71706:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 26, Chapter 3: Covenant Boots"           , "|H0:item:71707:5:11:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 26, Chapter 4: Covenant Bows"            , "|H0:item:71708:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 26, Chapter 5: Covenant Chests"          , "|H0:item:71709:5:11:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 26, Chapter 6: Covenant Daggers"         , "|H0:item:71710:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 26, Chapter 7: Covenant Gloves"          , "|H0:item:71711:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 26, Chapter 8: Covenant Helmets"         , "|H0:item:71712:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 26, Chapter 9: Covenant Legs"            , "|H0:item:71713:5:22:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 26, Chapter 10: Covenant Maces"          , "|H0:item:71714:5:11:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 26, Chapter 11: Covenant Shields"        , "|H0:item:71715:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 26, Chapter 12: Covenant Shoulders"      , "|H0:item:71716:5:11:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 26, Chapter 13: Covenant Staves"         , "|H0:item:71717:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 26, Chapter 14: Covenant Swords"         , "|H0:item:71718:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, {                                                                                                                           }
+, { "Crafting Motifs 27, Chapter 1: Pact Axes"                , "|H0:item:71721:5:47:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 27, Chapter 2: Pact Belts"               , "|H0:item:71722:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 27, Chapter 3: Pact Boots"               , "|H0:item:71723:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 27, Chapter 4: Pact Bows"                , "|H0:item:71724:5:23:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 27, Chapter 5: Pact Chests"              , "|H0:item:71725:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 27, Chapter 6: Pact Daggers"             , "|H0:item:71726:5:26:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 27, Chapter 7: Pact Gloves"              , "|H0:item:71727:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 27, Chapter 8: Pact Helmets"             , "|H0:item:71728:5:14:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 27, Chapter 9: Pact Legs"                , "|H0:item:71729:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 27, Chapter 10: Pact Maces"              , "|H0:item:71730:5:46:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 27, Chapter 11: Pact Shields"            , "|H0:item:71731:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 27, Chapter 12: Pact Shoulders"          , "|H0:item:71732:5:11:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 27, Chapter 13: Pact Staves"             , "|H0:item:71733:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 27, Chapter 14: Pact Swords"             , "|H0:item:71734:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, {                                                                                                                           }
+, { "Crafting Motifs 32, Chapter 1: Abah's Watch Axes"        , "|H0:item:74540:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 32, Chapter 2: Abah's Watch Belts"       , "|H0:item:74541:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 32, Chapter 3: Abah's Watch Boots"       , "|H0:item:74542:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 32, Chapter 4: Abah's Watch Bows"        , "|H0:item:74543:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 32, Chapter 5: Abah's Watch Chests"      , "|H0:item:74544:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 32, Ch. 6: Abah's Watch Daggers"         , "|H0:item:74545:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 32, Chapter 7: Abah's Watch Gloves"      , "|H0:item:74546:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 32, Ch. 8: Abah's Watch Helmets"         , "|H0:item:74547:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 32, Chapter 9: Abah's Watch Legs"        , "|H0:item:74548:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 32, Chapter 10: Abah's Watch Maces"      , "|H0:item:74549:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 32, Ch. 11: Abah's Watch Shields"        , "|H0:item:74550:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 32, Ch. 12: Abah's Watch Shoulders"      , "|H0:item:74551:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 32, Ch. 13: Abah's Watch Staves"         , "|H0:item:74552:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 32, Ch. 14: Abah's Watch Swords"         , "|H0:item:74553:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, {                                                                                                                           }
+, { "Crafting Motifs 33, Chapter 1: Thieves Guild Axes"       , "|H0:item:74556:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 33, Chapter 2: Thieves Guild Belts"      , "|H0:item:74557:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 33, Chapter 3: Thieves Guild Boots"      , "|H0:item:74558:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 33, Chapter 4: Thieves Guild Bows"       , "|H0:item:74559:5:42:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 33, Ch. 5: Thieves Guild Chests"         , "|H0:item:74560:5:10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 33, Ch. 6: Thieves Guild Daggers"        , "|H0:item:74561:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 33, Ch. 7: Thieves Guild Gloves"         , "|H0:item:74562:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 33, Ch. 8: Thieves Guild Helmets"        , "|H0:item:74563:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 33, Chapter 9: Thieves Guild Legs"       , "|H0:item:74564:5:12:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 33, Ch. 10: Thieves Guild Maces"         , "|H0:item:74565:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 33, Ch. 11: Thieves Guild Shields"       , "|H0:item:74566:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 33, Ch. 12: Thieves Guild Shoulder"      , "|H0:item:74567:5:19:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 33, Ch. 13: Thieves Guild Staves"        , "|H0:item:74568:5:44:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 33, Ch. 14: Thieves Guild Swords"        , "|H0:item:74569:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, {                                                                                                                           }
+, { "Crafting Motifs 34, Ch. 1: Assassins League Axes"        , "|H0:item:76879:5:17:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 34, Ch. 2: Assassins League Belts"       , "|H0:item:76880:5:9:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 34, Ch. 3: Assassins League Boots"       , "|H0:item:76881:5:19:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 34, Ch. 4: Assassins League Bows"        , "|H0:item:76882:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 34, Ch. 5: Assassins League Chests"      , "|H0:item:76883:5:13:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 34, Ch. 6: Assassins Daggers"            , "|H0:item:76884:5:9:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 34, Ch. 7: Assassins League Gloves"      , "|H0:item:76885:5:10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 34, Ch. 8: Assassins Helmets"            , "|H0:item:76886:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 34, Ch. 9: Assassins Legs"               , "|H0:item:76887:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 34, Ch. 10: Assassins League Maces"      , "|H0:item:76888:5:19:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 34, Ch. 11: Assassins Shields"           , "|H0:item:76889:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 34, Ch. 12: Assassins Shoulders"         , "|H0:item:76890:5:31:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 34, Ch. 13: Assassins Staves"            , "|H0:item:76891:5:6:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 34, Ch. 14: Assassins Swords"            , "|H0:item:76892:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, {                                                                                                                           }
+, { "Crafting Motifs 35, Chapter 1: Dro-m'Athra Axes"         , "|H0:item:74653:5:10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 35, Chapter 2: Dro-m'Athra Belts"        , "|H0:item:74654:5:8:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 35, Chapter 3: Dro-m'Athra Boots"        , "|H0:item:74655:5:37:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 35, Chapter 4: Dro-m'Athra Bows"         , "|H0:item:74656:5:7:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 35, Chapter 5: Dro-m'Athra Chests"       , "|H0:item:74657:5:11:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 35, Chapter 6: Dro-m'Athra Daggers"      , "|H0:item:74658:5:7:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 35, Chapter 7: Dro-m'Athra Gloves"       , "|H0:item:74659:5:11:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 35, Chapter 8: Dro-m'Athra Helmets"      , "|H0:item:74660:5:7:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 35, Chapter 9: Dro-m'Athra Legs"         , "|H0:item:74661:5:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 35, Chapter 10: Dro-m'Athra Maces"       , "|H0:item:74662:5:11:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 35, Chapter 11: Dro-m'Athra Shield"      , "|H0:item:74663:5:5:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 35, Ch. 12: Dro-m'Athra Shoulders"       , "|H0:item:74664:5:7:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 35, Chapter 13: Dro-m'Athra Staves"      , "|H0:item:74665:5:10:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 35, Chapter 14: Dro-m'Athra Swords"      , "|H0:item:74666:5:7:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, {                                                                                                                           }
+, { "Crafting Motifs 36, Ch. 1: Dark Brotherhood Axes"        , "|H0:item:82055:5:11:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 36, Ch. 2: Dark Brotherhood Belts"       , "|H0:item:82056:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 36, Ch. 3: Dark Brotherhood Boots"       , "|H0:item:82057:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 36, Ch. 4: Dark Brotherhood Bows"        , "|H0:item:82058:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 36, Ch. 5: Dark Brotherhood Chests"      , "|H0:item:82059:5:16:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 36, Ch. 6: Dark Brotherhood Dagger"      , "|H0:item:82060:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 36, Ch. 7: Dark Brotherhood Gloves"      , "|H0:item:82061:5:14:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 36, Ch. 8: Dark Brotherhood Helmet"      , "|H0:item:82062:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 36, Ch. 9: Dark Brotherhood Legs"        , "|H0:item:82063:5:11:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 36, Ch. 10: Dark Brotherhood Maces"      , "|H0:item:82064:5:11:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 36, Ch. 11: Dark Brotherhood Shiel"      , "|H0:item:82065:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 36, Ch. 12: Dark Brotherhood Shoul"      , "|H0:item:82066:5:16:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 36, Ch. 13: Dark Brotherhood Stave"      , "|H0:item:82067:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 36, Ch. 14: Dark Brotherhood Sword"      , "|H0:item:82068:5:50:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, {                                                                                                                           }
+, { "Crafting Motifs 39, Chapter 1: Minotaur Axes"            , "|H0:item:82072:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 39, Chapter 2: Minotaur Belts"           , "|H0:item:82073:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 39, Chapter 3: Minotaur Boots"           , "|H0:item:82074:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 39, Chapter 4: Minotaur Bows"            , "|H0:item:82075:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 39, Chapter 5: Minotaur Chests"          , "|H0:item:82076:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 39, Chapter 6: Minotaur Daggers"         , "|H0:item:82077:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 39, Chapter 7: Minotaur Gloves"          , "|H0:item:82078:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 39, Chapter 8: Minotaur Helmets"         , "|H0:item:82079:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 39, Chapter 9: Minotaur Legs"            , "|H0:item:82080:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 39, Chapter 10: Minotaur Maces"          , "|H0:item:82081:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 39, Chapter 11: Minotaur Shields"        , "|H0:item:82082:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 39, Chapter 12: Minotaur Shoulders"      , "|H0:item:82083:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 39, Chapter 13: Minotaur Staves"         , "|H0:item:82084:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 39, Chapter 14: Minotaur Swords"         , "|H0:item:82085:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, {                                                                                                                          }
+, { "Crafting Motifs 40, Chapter 1: Order Hour Axes"          , "|H0:item:82088:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 40, Chapter 2: Order Hour Belts"         , "|H0:item:82089:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 40, Chapter 3: Order Hour Boots"         , "|H0:item:82090:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 40, Chapter 4: Order Hour Bows"          , "|H0:item:82091:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 40, Chapter 5: Order Hour Chests"        , "|H0:item:82092:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 40, Chapter 6: Order Hour Daggers"       , "|H0:item:82093:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 40, Chapter 7: Order Hour Gloves"        , "|H0:item:82094:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 40, Chapter 8: Order Hour Helmets"       , "|H0:item:82095:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 40, Chapter 9: Order Hour Legs"          , "|H0:item:82096:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 40, Chapter 10: Order Hour Maces"        , "|H0:item:82097:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 40, Chapter 11: Order Hour Shields"      , "|H0:item:82098:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 40, Ch. 12: Order Hour Shoulders"        , "|H0:item:82099:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 40, Chapter 13: Order Hour Staves"       , "|H0:item:82100:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, { "Crafting Motifs 40, Chapter 14: Order Hour Swords"       , "|H0:item:82101:5:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h" }
+, {                                                                                                                          }
+
+
 }
 
 
