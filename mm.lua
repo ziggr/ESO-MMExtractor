@@ -121,6 +121,10 @@ function Outlier:IsOutlier(sale)
     return 3 * self.stddev < math.abs(self.mean - sale:Mean())
 end
 
+function less_ts(a, b)
+    return a.ts < b.ts
+end
+
 -- Average one list of Sale records
 --
 -- 1. Ignore outliers.
@@ -136,6 +140,14 @@ function History:Average(days_ago)
     local l         = self[days_ago]
     local acc       = Sale:New(0, 0)
     local outlier   = Outlier:New(l)
+
+                        -- Outlier detection requires that sales records be
+                        -- sorted by time. We cannot rely on our MM reader to
+                        -- leave sales sorted by time: some records are split
+                        -- across files and the files might be read out of
+                        -- order. sort() by timestamp, ascending.
+    table.sort(l, less_ts)
+
     for _, sale in ipairs(l) do
         local sale_mean = sale:Mean()
         if outlier:IsOutlier(sale) then
@@ -179,7 +191,6 @@ function init_history(links)
     for _, link in ipairs(links) do
         if link  and link ~= "" then
             local ls = link_strip(link)
-            d(ls)
             r[ls] = History:New(name, link)
         end
     end
@@ -199,8 +210,10 @@ function init_cutoffs()
     return r
 end
 
+-- THIS IS INCORRECT
 -- Item links are significant only to the second number. After that is noise
 -- that can sometimes vary (Rejera did) and cause us to miss sale records.
+--
 function link_strip(link)
     -- Find the 4th colon
 
@@ -214,8 +227,84 @@ function link_strip(link)
         end
         delim_index = end_index
     end
-                        -- 4, not 0, to skip over "H0" which can be "H1" or some other number. Doesn't matter. Same item.
+                        -- 4, not 0, to skip over "H0" which can be "H1" or
+                        -- some other number. Doesn't matter. Same item.
     return string.sub(link, 4, end_index)
+end
+
+-- Return the first number in the colon-delimited sequence
+-- |H1:item:30160:31:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h
+-- item ID :-----:
+function to_item_id(link)
+    return tonumber(string.match(link, '|H.-:item:(.-):'))
+end
+
+-- Return a colon-separated list of numbers that MM uses to identify
+-- level, traits, and other significant differentiators when grouping
+-- item sales.
+--
+-- This CANNOT be done offline, as MM depends on ESO API calls to extract
+-- level and other traits. Nobody has reverse-engineered those API calls
+-- well enough to reliably replace them.
+--   So instead of unreliably replacing ESO API calls, we scan MM data until
+-- we find an EXACT match of the link, and then use whatever MM itemIndex goes
+-- with that link.
+--
+-- O(n) scan for n rows with the same itemID. Usually n < 100.
+function to_item_index(link)
+    item_id = to_item_id(link)
+    if not MMDATA[item_id] then
+        d("NOT FOUND: itemID="..item_id)
+        return nil
+    end
+
+    link_stripped = link_strip_x(link)
+    for item_index, v in pairs(MMDATA[item_id]) do
+        if v["sales"] then
+            for i, s in ipairs(v["sales"]) do
+                if link_strip_x(s["itemLink"]) == link_stripped then
+                    return item_index
+                end
+            end
+        end
+    end
+
+    d("NOT FOUND: link="..link)
+end
+
+-- Remove the parts of a link that can vary without affecting MM itemID or itemIndex
+--
+-- Strips "|H0:item:" prefix and "|h|h" suffix
+function link_strip_x(link)
+    return string.match(link, '|H.-:item:(.+)|h')
+end
+
+function loop_over_links()
+    for _,link in ipairs(LINKS) do
+        local history    = History:New("name?", link)
+        local item_id    = to_item_id(link)
+        local item_index = to_item_index(link)
+        local sd = MMDATA[item_id][item_index]
+        if sd then
+            local item_desc = sd["itemDesc"]
+            history.name = item_desc
+            for _,mm_sale in ipairs(sd["sales"]) do
+                history:Append(mm_sale)
+            end
+        end
+
+
+        l = {}
+
+        for days_ago, _ in pairs(CUTOFFS) do
+            local avg = history:Average(days_ago)
+            table.insert(l, avg)
+        end
+        table.insert(l, history.name)
+        write_list(l)
+
+        HISTORY[link] = history
+    end
 end
 
 -- ===========================================================================
@@ -258,11 +347,44 @@ function read_input_file(in_file_path, var_name)
     return var["Default"]["MasterMerchant"]["$AccountWide"]["SalesData"]
 end
 
+-- Read all MM SavedVariables files, merge all of their SalesData into a giant in-memory table.
+function read_all_input_files()
+    local mm_all = {}
+    for i = 0,20 do
+        local in_file_path = "../../SavedVariables/MM"
+                             .. string.format("%02d",i)
+                             .. "Data.lua"
+        local var_name = "MM" .. string.format("%02d",i)
+                         .. "DataSavedVariables"
+        local mm_sales_data = read_input_file(in_file_path, var_name)
+        if mm_sales_data then
+            for item_id, v in pairs(mm_sales_data) do
+                if not mm_all[item_id] then
+                    mm_all[item_id] = v
+                else
+                    --d("MERGING itemId="..item_id)
+                    for item_index, vv in pairs(v) do
+                        if not mm_all[item_id][item_index] then
+                            mm_all[item_id][item_index] = vv
+                        else
+                            --d("MERGING itemId="..item_id.." itemIndex="..item_index)
+                            for si, s in ipairs(vv["sales"]) do
+                                table.insert(mm_all[item_id][item_index]["sales"], s)
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return mm_all
+end
+
 -- Scan through a "SalesData" table, recording all mat sales records to HISTORY.
 function record_mm_sales_data(mm_sales_data)
     if not mm_sales_data then return end
-    for k,v in pairs(mm_sales_data) do     -- k  = 45061
-        for kk,vv in pairs(v) do        -- kk = "31:0:3:12:0"
+    for item_id,v in pairs(mm_sales_data) do    -- item_id    = 45061
+        for item_index,vv in pairs(v) do        -- item_index = "31:0:3:12:0"
             if vv["sales"] then
                 for i, mm_sale in ipairs(vv["sales"]) do
                     record_mm_sale(mm_sale)
@@ -356,5 +478,9 @@ end
 CUTOFFS = init_cutoffs()
 LINKS   = parse_argv()
 HISTORY = init_history(LINKS)
-loop_over_input_files()
-write_averages()
+MMDATA  = read_all_input_files()
+
+loop_over_links()
+
+-- loop_over_input_files()
+-- write_averages()

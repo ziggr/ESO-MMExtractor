@@ -721,6 +721,7 @@ function History:Average(days_ago)
     local l         = self[days_ago]
     local acc       = Sale:New(0, 0)
     local outlier   = Outlier:New(l)
+
     for _, sale in ipairs(l) do
         local sale_mean = sale:Mean()
         if outlier:IsOutlier(sale) then
