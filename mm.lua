@@ -16,7 +16,6 @@ SEC_PER_DAY = 24*60*60
 
 TAB = "\t"
 LINKS = {}
-HISTORY = {}    -- "link" ==> History table, initialized in init_history()
 
 -- Sale ----------------------------------------------------------------------
 -- One sale, whether for 1 or a stack of 200 or anywhere in between.
@@ -302,26 +301,12 @@ function loop_over_links()
         end
         table.insert(l, history.name)
         write_list(l)
-
-        HISTORY[link] = history
     end
 end
 
 -- ===========================================================================
 -- Reading MM data
 -- ===========================================================================
-
-function loop_over_input_files()
-    for i = 0,20 do
-        local in_file_path = "../../SavedVariables/MM"
-                             .. string.format("%02d",i)
-                             .. "Data.lua"
-        local var_name = "MM" .. string.format("%02d",i)
-                         .. "DataSavedVariables"
-        local mm_sales_data = read_input_file(in_file_path, var_name)
-        record_mm_sales_data(mm_sales_data)
-    end
-end
 
 -- Dodge "No such file or directory" IO errors
 --
@@ -348,7 +333,7 @@ function read_input_file(in_file_path, var_name)
 end
 
 -- Read all MM SavedVariables files, merge all of their SalesData into a giant in-memory table.
-function read_all_input_files()
+function read_all_mm_files()
     local mm_all = {}
     for i = 0,20 do
         local in_file_path = "../../SavedVariables/MM"
@@ -380,32 +365,6 @@ function read_all_input_files()
     return mm_all
 end
 
--- Scan through a "SalesData" table, recording all mat sales records to HISTORY.
-function record_mm_sales_data(mm_sales_data)
-    if not mm_sales_data then return end
-    for item_id,v in pairs(mm_sales_data) do    -- item_id    = 45061
-        for item_index,vv in pairs(v) do        -- item_index = "31:0:3:12:0"
-            if vv["sales"] then
-                for i, mm_sale in ipairs(vv["sales"]) do
-                    record_mm_sale(mm_sale)
-                end
-            end
-        end
-    end
-end
-
-function record_mm_sale(mm_sale)
-    --d(mm_sale.itemLink)
-    local ls = link_strip(mm_sale.itemLink)
-    local h = HISTORY[ls]
-    if h then
-        -- d("found    : " .. mm_sale.itemLink)
-        h:Append(mm_sale)
-    else
-        --d("not a mat: " .. mm_sale.itemLink)
-    end
-end
-
 -- ===========================================================================
 -- Writing data
 -- ===========================================================================
@@ -419,26 +378,6 @@ function write_list(l)
         line = line .. key
     end
     print(line)
-end
-
-function write_averages()
-    for i, link in ipairs(LINKS) do
-        local out = {}
-        if link and link ~= "" then
-            l = link_strip(link)
-            local history = HISTORY[link_strip(link)]
-            for _, days_ago in ipairs(DAYS_AGO) do
-                if history then
-                    local avg = history:Average(days_ago)
-                    table.insert(out, string.format("%d", avg))
-                else
-                    table.insert(out, "0")
-                end
-            end
-            table.insert(out, link)
-            write_list(out)
-        end
-    end
 end
 
 -- ===========================================================================
@@ -476,11 +415,9 @@ end
 -- main ----------------------------------------------------------------------
 
 CUTOFFS = init_cutoffs()
+MMDATA  = read_all_mm_files()
+
 LINKS   = parse_argv()
-HISTORY = init_history(LINKS)
-MMDATA  = read_all_input_files()
 
 loop_over_links()
 
--- loop_over_input_files()
--- write_averages()
