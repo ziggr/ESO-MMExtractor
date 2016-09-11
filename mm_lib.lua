@@ -156,6 +156,15 @@ function History:Average(days_ago)
     return acc:Mean()
 end
 
+-- Return the best average we can find: 10-day if possible, 30-day if not.
+function History:AverageFirst()
+    for _,days_ago in ipairs(DAYS_AGO) do
+        local avg = self:Average(days_ago)
+        if avg > 0 then return avg end
+    end
+    return 0
+end
+
 -- Return a simple mean average of all values in history.
 function Mean(l)
     local acc = Sale:New(0, 0)
@@ -190,28 +199,6 @@ function init_cutoffs()
     return r
 end
 
--- THIS IS INCORRECT
--- Item links are significant only to the second number. After that is noise
--- that can sometimes vary (Rejera did) and cause us to miss sale records.
---
-function link_strip(link)
-    -- Find the 4th colon
-
-    delim = ':'
-    local delim_index = 0
-    local end_index   = 0
-    for i = 1,4 do
-        end_index = string.find(link, delim, delim_index + 1)
-        if end_index == nil then
-            break
-        end
-        delim_index = end_index
-    end
-                        -- 4, not 0, to skip over "H0" which can be "H1" or
-                        -- some other number. Doesn't matter. Same item.
-    return string.sub(link, 4, end_index)
-end
-
 -- Return the first number in the colon-delimited sequence
 -- |H1:item:30160:31:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h
 -- item ID :-----:
@@ -239,12 +226,14 @@ function to_item_index(link)
     end
 
     link_stripped = link_strip_x(link)
+    -- print("want: "..link_stripped)
     for item_index, v in pairs(MMDATA[item_id]) do
         if v["sales"] then
             for i, s in ipairs(v["sales"]) do
                 if link_strip_x(s["itemLink"]) == link_stripped then
                     return item_index
                 end
+                -- print("    : " .. link_strip_x(s["itemLink"]))
             end
         end
     end
@@ -259,6 +248,21 @@ function link_strip_x(link)
     return string.match(link, '|H.-:item:(.+)|h')
 end
 
+function link_to_history(link)
+    local history    = History:New("name?", link)
+    local item_id    = to_item_id(link)
+    local item_index = to_item_index(link)
+    if not item_index then return nil end
+    local sd = MMDATA[item_id][item_index]
+    if sd then
+        local item_desc = sd["itemDesc"]
+        history.name = item_desc
+        for _,mm_sale in ipairs(sd["sales"]) do
+            history:Append(mm_sale)
+        end
+    end
+    return history
+end
 
 -- ===========================================================================
 -- Reading MM data
